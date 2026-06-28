@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 190" role="img" aria-label="Forget the Bett">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&amp;display=swap');
+    .fg{font-family:'Fraunces','Georgia',serif}
+  </style>
+  <text class="fg" x="40" y="132" font-size="108" fill="#26231f">Forget the <tspan fill="#8a5e3c" font-style="italic">Bett</tspan>.</text>
+  <line x1="476" y1="106" x2="628" y2="96" stroke="#b07d56" stroke-width="9" stroke-linecap="round"/>
+</svg>

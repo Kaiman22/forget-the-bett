@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Forget the Bett — All you need is Schlaf.</title>
+<meta name="description" content="Forget the Bett. Matratze auf den Boden, 3D-Mesh-Matte drunter gegen Feuchtigkeit. Mit ohne Bett schläft sich's besser." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sand:#f4efe7; --sand-deep:#ece4d8; --white:#fbf9f5;
+    --clay:#b07d56; --clay-deep:#8a5e3c; --sage:#7f8b6f;
+    --ink:#26231f; --ink-soft:#5c554c; --line:#ddd3c4;
+    --radius:18px; --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--sand);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;color:var(--clay-deep);font-weight:600}
+
+  /* small brand wordmark (reused in header + footer) */
+  .brand{font-family:'Fraunces',serif;font-size:1.18rem;letter-spacing:-.01em}
+  .brand .s{color:var(--clay-deep);font-style:italic;position:relative}
+  .brand .s::after{content:"";position:absolute;left:-.05em;right:-.05em;top:56%;height:2px;background:var(--clay);transform:rotate(-2deg)}
+
+  .btn{display:inline-block;background:var(--ink);color:var(--white);padding:13px 26px;border-radius:100px;font-size:.92rem;font-weight:500;transition:transform .15s,background .2s}
+  .btn:hover{transform:translateY(-2px);background:#000}
+  .btn-clay{background:var(--clay-deep)} .btn-clay:hover{background:var(--clay)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--white)}
+
+  /* sticky header — hidden over the cover, slides in on scroll */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,239,231,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .35s ease}
+  header.show{transform:translateY(0)}
+  header nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+
+  /* COVER — white, wordmark only */
+  .cover{background:#fff;min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 28px}
+  .cover-mark{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.7rem,11vw,7rem);line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .cover-mark .s2{position:relative;color:var(--clay-deep);font-style:italic}
+  .cover-mark .s2::after{content:"";position:absolute;left:-.04em;right:-.06em;top:54%;height:.07em;background:var(--clay);border-radius:3px;transform:rotate(-2.2deg)}
+  .cover .sub{font-family:'Fraunces',serif;font-style:italic;color:var(--clay-deep);font-size:1.2rem;margin-top:26px}
+  .scroll-cue{margin-top:54px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-cue .arr{font-size:1.1rem;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* INTRO statement */
+  .intro{padding:104px 0}
+  .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .intro h1{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:16ch}
+  .intro p{color:var(--ink-soft);font-size:1.12rem;margin:22px 0 30px;max-width:34ch}
+  .intro .photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px -34px rgba(60,40,20,.45)}
+  .intro .photo img{width:100%;height:100%;object-fit:cover}
+  @media(max-width:840px){.intro-grid{grid-template-columns:1fr;gap:38px}.intro .photo{aspect-ratio:16/12}}
+
+  /* RELIC — dark band */
+  .relic{background:var(--ink);color:var(--sand);padding:clamp(70px,9vw,120px) 0;text-align:center}
+  .relic .eyebrow{color:#d9a877}
+  .relic h2{color:#fff;font-size:clamp(2rem,5vw,3.4rem);max-width:16ch;margin:16px auto 0;line-height:1.12}
+  .relic .qs{list-style:none;max-width:30rem;margin:34px auto 0;text-align:left;display:grid;gap:13px}
+  .relic .qs li{display:flex;gap:13px;align-items:flex-start;color:#e4dccd;font-size:1.05rem}
+  .relic .qs li::before{content:"\2715";color:#cf7d68;font-weight:700;flex:none;margin-top:1px}
+  .relic .punch{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.4rem,3.2vw,2.1rem);color:#fff;margin:34px auto 0;max-width:20ch;line-height:1.25}
+  .relic .punch b{color:#d9a877;font-style:normal}
+  .relic .note{color:#b8ad9b;font-size:.96rem;max-width:42ch;margin:18px auto 0}
+
+  /* BENEFITS */
+  .benefits{padding:104px 0}
+  .b-head{max-width:38rem;margin-bottom:50px}
+  .b-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
+  .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .benefit{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:38px 34px}
+  .benefit .num{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--clay);margin-bottom:16px}
+  .benefit h3{font-size:1.7rem;margin-bottom:10px}
+  .benefit p{color:var(--ink-soft);font-size:1rem}
+  @media(max-width:720px){.bgrid{grid-template-columns:1fr}}
+
+  /* MESH section */
+  .mesh{background:var(--sand-deep);padding:104px 0}
+  .mesh-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .mesh h2{font-size:clamp(2rem,4vw,2.9rem);margin:12px 0 20px}
+  .mesh p{color:var(--ink-soft);font-size:1.08rem;max-width:38ch}
+  .mesh .sol{margin-top:16px;color:var(--ink)}
+  .layer-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px;font-size:.92rem}
+  .layer-row span{background:var(--white);border:1px solid var(--line);border-radius:100px;padding:9px 18px}
+  .layer-row span.hl{background:var(--ink);color:var(--sand);border-color:var(--ink)}
+  .layer-row i{color:var(--clay);font-style:normal;font-weight:600}
+  .mesh .photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1;box-shadow:0 30px 60px -34px rgba(60,40,20,.5)}
+  .mesh .photo img{width:100%;height:100%;object-fit:cover}
+  @media(max-width:840px){.mesh-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* PRODUCT */
+  .product{background:var(--ink);color:var(--sand);padding:104px 0}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .gallery .big{grid-column:1/-1;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10}
+  .gallery .sm{border-radius:14px;overflow:hidden;aspect-ratio:1/1}
+  .gallery img{width:100%;height:100%;object-fit:cover}
+  .product .eyebrow{color:#d9a877}
+  .product h2{color:#fff;font-size:clamp(2rem,4vw,2.7rem);margin:12px 0 4px}
+  .product .ptag{font-family:'Fraunces',serif;font-style:italic;color:#d9a877;font-size:1.12rem;margin-bottom:14px}
+  .product .price{font-family:'Fraunces',serif;font-size:2.1rem;color:#fff}
+  .product .price small{font-size:1rem;color:#b8ad9b;font-family:'Inter'}
+  .product .desc{color:#c9beac;margin:16px 0 24px;max-width:32ch}
+  .swatches{display:flex;gap:12px;margin:18px 0 26px}
+  .swatch{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer}
+  .swatch.active{box-shadow:0 0 0 2px var(--sand)}
+  .feature-row{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;font-size:.84rem;color:#c9beac}
+  .feature-row b{color:#fff;display:block;font-family:'Fraunces',serif;font-size:1.05rem}
+  @media(max-width:840px){.pgrid{grid-template-columns:1fr;gap:36px}}
+
+  /* FAQ */
+  .faq{padding:104px 0}
+  .faq h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:36px}
+  details{border-bottom:1px solid var(--line);padding:22px 0}
+  summary{font-family:'Fraunces',serif;font-size:1.2rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.5rem;color:var(--clay);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--ink-soft);margin-top:14px;max-width:64ch}
+
+  /* CTA */
+  .cta{background:var(--sand-deep);padding:110px 0;text-align:center}
+  .cta h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:14px}
+  .cta p{color:var(--ink-soft);max-width:34rem;margin:0 auto 30px;font-size:1.08rem}
+  .signup{display:flex;gap:10px;max-width:430px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .signup input{flex:1;min-width:220px;padding:14px 18px;border:1px solid var(--line);border-radius:100px;background:var(--white);font-size:.95rem;font-family:inherit}
+  .signup input:focus{outline:none;border-color:var(--clay)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#b8ad9b;padding:56px 0 34px;font-size:.9rem}
+  .foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:36px}
+  footer .brand{color:var(--sand)}
+  .foot-col h4{color:var(--sand);font-family:'Inter';font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+  .foot-col a{display:block;margin-bottom:9px}.foot-col a:hover{color:var(--sand)}
+  .foot-bottom{border-top:1px solid #3a352e;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
+</style>
+</head>
+<body>
+
+<!-- sticky header (slides in on scroll) -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">forget the <span class="s">bett</span>.</a>
+      <a class="btn btn-clay" href="#product">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<!-- COVER -->
+<section class="cover" id="top">
+  <div class="cover-mark">Forget the <span class="s2">Bett</span>.</div>
+  <div class="sub">All you need is Schlaf.</div>
+  <div class="scroll-cue">Scroll<span class="arr">↓</span></div>
+</section>
+
+<!-- INTRO STATEMENT -->
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div>
+      <h1>Das Bett ist eine Lösung für Probleme, die es nicht mehr gibt.</h1>
+      <p>Matratze auf den Boden. Fertig. Wir liefern nur das eine Teil, das den Boden trocken hält.</p>
+      <a class="btn btn-clay" href="#product">Die Matte — ab 89&nbsp;€</a>
+    </div>
+    <div class="photo"><img src="assets/mesh1.jpg" alt="Luft strömt durch die 3D-Mesh-Matte" /></div>
+  </div>
+</section>
+
+<!-- RELIC -->
+<section class="relic">
+  <div class="wrap">
+    <span class="eyebrow">Das Bett, ein Relikt</span>
+    <h2>Laufen dir Nager durchs Schlafzimmer?</h2>
+    <ul class="qs">
+      <li>Schläfst du auf kaltem, feuchtem Lehmboden?</li>
+      <li>Pfeift dir mittelalterliche Zugluft unter den Rücken?</li>
+    </ul>
+    <div class="punch">Dreimal nein? Dann ist dein Bett ein <b>Relikt.</b></div>
+    <p class="note">Genau für diese Probleme wurde es erfunden — dein Zuhause hat sie längst gelöst.</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="why">
+  <div class="wrap">
+    <div class="b-head">
+      <span class="eyebrow">Mit ohne Bett</span>
+      <h2>Was plötzlich geht.</h2>
+    </div>
+    <div class="bgrid">
+      <div class="benefit"><div class="num">01</div><h3>Weniger ist Freiheit.</h3><p>Weniger ausgeben, besitzen, schrauben oder schleppen. Minimal leben, leicht schlafen.</p></div>
+      <div class="benefit"><div class="num">02</div><h3>Bumsen ohne rumsen.</h3><p>Knarzfrei lieben — diskret und rücksichtsvoll für Nachbarn oder Mitbewohner.</p></div>
+      <div class="benefit"><div class="num">03</div><h3>Kindersicher.</h3><p>Bodennah und ohne harte Kanten — sorglos schlafen und toben.</p></div>
+      <div class="benefit"><div class="num">04</div><h3>Based.</h3><p>Geerdet am Boden. Gesund für den Rücken wie ein japanischer Mönch.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MESH -->
+<section class="mesh">
+  <div class="wrap mesh-grid">
+    <div>
+      <span class="eyebrow">Die eine Ausnahme</span>
+      <h2>Schlaf is in the Air.</h2>
+      <p>Über Nacht gibt dein Körper bis zu einem halben Liter Wasser ab. Direkt auf dem Boden staut sich das unter der Matratze — Stockflecken, Schimmel, Mief.</p>
+      <p class="sol"><strong>Die 3D-Mesh-Matte</strong> schiebt einen ~1&nbsp;cm hohen Luftkanal zwischen Matratze und Boden. Feuchtigkeit entweicht, alles bleibt trocken. Mehr brauchst du nicht.</p>
+      <div class="layer-row"><span>Matratze</span><i>+</i><span class="hl">3D-Mesh</span><i>+</i><span>Boden</span></div>
+    </div>
+    <div class="photo"><img src="assets/mesh3.jpg" alt="3D-Mesh-Struktur mit Luftkanal" /></div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product" id="product">
+  <div class="wrap pgrid">
+    <div class="gallery">
+      <div class="big"><img id="hero-shot" src="assets/mesh3.jpg" alt="The Monk Mat, gerollt" /></div>
+      <div class="sm"><img src="assets/mesh1.jpg" alt="Luftdurchlässigkeit" /></div>
+      <div class="sm"><img src="assets/mesh2.jpg" alt="Textil-Mesh Detail" /></div>
+    </div>
+    <div>
+      <span class="eyebrow">Das einzige Teil, das du brauchst</span>
+      <h2>The Monk Mat</h2>
+      <div class="ptag">Mat statt Bett.</div>
+      <div class="price">89&nbsp;€ <small>/ 90×200&nbsp;cm · auch 140 &amp; 160</small></div>
+      <p class="desc">3D-Abstandsgewirke mit gewebtem Textil-Mesh. Atmungsaktiv, waschbar, rollbar.</p>
+      <span class="eyebrow">Farbe</span>
+      <div class="swatches">
+        <span class="swatch active" style="background:#b07d56" title="Clay"></span>
+        <span class="swatch" style="background:#7f8b6f" title="Sage"></span>
+        <span class="swatch" style="background:#26231f" title="Ink"></span>
+        <span class="swatch" style="background:#d9cdb8" title="Sand"></span>
+      </div>
+      <a class="btn btn-clay" href="#cta">In den Warenkorb</a>
+      <div class="feature-row">
+        <div><b>~1 cm</b>Luftkanal</div>
+        <div><b>30 °C</b>waschbar</div>
+        <div><b>30</b>Nächte testen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Fragen?</h2>
+    <details open><summary>Wird die Matratze auf dem Boden nicht hart?</summary><p>Nein — die Härte bestimmt deine Matratze, nicht der Untergrund. Die Mesh-Matte ist nur ~1 cm dünn und belüftet, sie polstert nicht. Du schläfst wie gewohnt, nur trockener.</p></details>
+    <details><summary>Reicht eine so dünne Matte gegen Feuchtigkeit?</summary><p>Ja. Entscheidend ist der durchgehende Luftkanal, nicht die Dicke. Das 3D-Gewirke hält oben und unten auf Abstand, Luft zirkuliert ständig.</p></details>
+    <details><summary>Funktioniert das auf Parkett und Laminat?</summary><p>Auf jedem festen Boden — Parkett, Laminat, Vinyl, Estrich. Gerade Holzböden schützt die Matte vor Stau-Feuchtigkeit.</p></details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <span class="eyebrow">Werde Teil der Bewegung</span>
+    <h2>Forget the Bett.</h2>
+    <p>Trag dich ein und sei beim Launch dabei — die ersten 100 bekommen 15&nbsp;% auf ihre erste Matte.</p>
+    <form class="signup" onsubmit="this.querySelector('input').value='';alert('Danke! Du bist auf der Liste.');return false;">
+      <input type="email" placeholder="deine@email.de" required />
+      <button class="btn btn-clay" type="submit">Auf die Liste</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:260px">
+        <a class="brand" href="#top">forget the <span class="s">bett</span>.</a>
+        <p style="margin-top:14px">Mit ohne Bett. All you need is Schlaf.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <a href="#product">The Monk Mat</a>
+        <a href="#product">Größen &amp; Farben</a>
+        <a href="#cta">Newsletter</a>
+      </div>
+      <div class="foot-col">
+        <h4>Mehr</h4>
+        <a href="#why">Warum mit ohne Bett</a>
+        <a href="#mesh">Die Matte</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Folge uns</h4>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Forget the Bett — Mockup</span>
+      <span>Impressum · Datenschutz · AGB</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header appears after the cover
+  var hd=document.querySelector('header');
+  addEventListener('scroll',function(){hd.classList.toggle('show',scrollY>window.innerHeight*0.55)});
+  // swatches
+  document.querySelectorAll('.swatch').forEach(function(s){s.addEventListener('click',function(){document.querySelector('.swatch.active').classList.remove('active');s.classList.add('active')})});
+  // gallery swap
+  document.querySelectorAll('.gallery .sm img').forEach(function(img){img.parentElement.style.cursor='pointer';img.parentElement.addEventListener('click',function(){var h=document.getElementById('hero-shot');var t=h.src;h.src=img.src;img.src=t})});
+</script>
+</body>
+</html>
