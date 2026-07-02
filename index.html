@@ -39,6 +39,9 @@
   header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,239,231,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .35s ease}
   header.show{transform:translateY(0)}
   header nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .nav-links{display:flex;gap:26px;font-size:.9rem;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+  @media(max-width:640px){.nav-links{display:none}}
 
   /* COVER — white, wordmark only */
   .cover{background:#fff;min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 28px}
@@ -96,6 +99,16 @@
   .mesh .photo img{width:100%;height:100%;object-fit:cover}
   @media(max-width:840px){.mesh-grid{grid-template-columns:1fr;gap:36px}}
 
+  /* MATERIAL strip */
+  .material{padding:104px 0}
+  .material h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
+  .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  .material figure{border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid var(--line)}
+  .material figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .material figcaption{padding:18px 20px 22px;font-family:'Fraunces',serif;font-size:1.15rem}
+  .material figcaption span{display:block;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+  @media(max-width:720px){.mat-grid{grid-template-columns:1fr}}
+
   /* PRODUCT */
   .product{background:var(--ink);color:var(--sand);padding:104px 0}
   .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
@@ -150,6 +163,11 @@
   <div class="wrap">
     <nav>
       <a class="brand" href="#top">forget the <span class="s">bett</span>.</a>
+      <div class="nav-links">
+        <a href="#why">Warum</a>
+        <a href="#mesh">Die Matte</a>
+        <a href="#faq">FAQ</a>
+      </div>
       <a class="btn btn-clay" href="#product">Shop</a>
     </nav>
   </div>
@@ -207,7 +225,7 @@
 </section>
 
 <!-- MESH -->
-<section class="mesh">
+<section class="mesh" id="mesh">
   <div class="wrap mesh-grid">
     <div>
       <span class="eyebrow">Die eine Ausnahme</span>
@@ -216,7 +234,29 @@
       <p class="sol"><strong>Die 3D-Mesh-Matte</strong> schiebt einen satten ~3&nbsp;cm hohen Luftkanal zwischen Matratze und Boden — extra viel Luft. Feuchtigkeit entweicht, alles bleibt trocken. Mehr brauchst du nicht.</p>
       <div class="layer-row"><span>Matratze</span><i>+</i><span class="hl">3D-Mesh</span><i>+</i><span>Boden</span></div>
     </div>
-    <div class="photo"><img src="assets/Gemini_Generated_Image_14pxpr14pxpr14px.jpeg" alt="Luft zirkuliert durch die 3D-Mesh-Matte unter der schwebenden Matratze" /></div>
+    <div class="photo"><img src="assets/Gemini_Generated_Image_14pxpr14pxpr14px.jpeg" alt="Luft zirkuliert durch die 3D-Mesh-Matte unter der schwebenden Matratze" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- MATERIAL -->
+<section class="material">
+  <div class="wrap">
+    <span class="eyebrow">Das Material</span>
+    <h2>Das Gewirke arbeitet nachts.</h2>
+    <div class="mat-grid">
+      <figure>
+        <img src="assets/Gemini_Generated_Image_6xuvj66xuvj66xuv.png" alt="Wasserdampf steigt durch die Mesh-Matte auf" loading="lazy" />
+        <figcaption>Atmet ständig.<span>Feuchtigkeit steigt auf, statt sich zu stauen.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/Gemini_Generated_Image_lbqg6clbqg6clbqg.jpg" alt="Feines 3D-Gewirke trägt ein kostbares Objekt" loading="lazy" />
+        <figcaption>Trägt Kostbares.<span>Dein Rücken, zum Beispiel.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/FAD3D846-6DE8-445E-A6D4-9826B94DFF58.png" alt="Die Monk Mat, aufgerollt" loading="lazy" />
+        <figcaption>Rollt sich weg.<span>Unterm Arm zum Umzug. Bei 30&nbsp;°C in die Wäsche.</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -224,9 +264,9 @@
 <section class="product" id="product">
   <div class="wrap pgrid">
     <div class="gallery">
-      <div class="big"><img id="hero-shot" src="assets/image.png" alt="The Monk Mat" /></div>
-      <div class="sm"><img src="assets/image2.png" alt="Matratze auf der Matte, direkt auf dem Boden" /></div>
-      <div class="sm"><img src="assets/image3.png" alt="Luftzirkulation unter der Matratze" /></div>
+      <div class="big"><img id="hero-shot" src="assets/image.png" alt="The Monk Mat" loading="lazy" /></div>
+      <div class="sm"><img src="assets/image5.png" alt="Dampf strömt durch die Mesh-Kante" loading="lazy" /></div>
+      <div class="sm"><img src="assets/image6.png" alt="Luftzirkulation unter der Matratze" loading="lazy" /></div>
     </div>
     <div>
       <span class="eyebrow">Das einzige Teil, das du brauchst</span>
@@ -254,10 +294,11 @@
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
-    <h2>Fragen?</h2>
-    <details open><summary>Wird die Matratze auf dem Boden nicht hart?</summary><p>Nein — die Härte bestimmt deine Matratze, nicht der Untergrund. Die Mesh-Matte belüftet, sie ist kein Topper. Du schläfst auf deiner gewohnten Matratze, nur trockener.</p></details>
-    <details><summary>Reicht die Matte gegen Feuchtigkeit?</summary><p>Ja. Entscheidend ist der durchgehende Luftkanal — und der ist mit ~3 cm besonders großzügig. Das 3D-Gewirke hält oben und unten auf Abstand, Luft zirkuliert ständig.</p></details>
-    <details><summary>Funktioniert das auf Parkett und Laminat?</summary><p>Auf jedem festen Boden — Parkett, Laminat, Vinyl, Estrich. Gerade Holzböden schützt die Matte vor Stau-Feuchtigkeit.</p></details>
+    <h2>Okay, aber&nbsp;…</h2>
+    <details open><summary>… und mein Lattenrost?</summary><p>Brauchst du nicht mehr. Der Lattenrost war nur die Belüftung des Bettzeitalters — die Matte macht denselben Job. Einfach 30&nbsp;cm tiefer.</p></details>
+    <details><summary>… wird die Matratze auf dem Boden nicht hart?</summary><p>Nein — die Härte bestimmt deine Matratze, nicht der Untergrund. Die Mesh-Matte belüftet, sie ist kein Topper. Du schläfst auf deiner gewohnten Matratze, nur trockener.</p></details>
+    <details><summary>… reicht die Matte gegen Feuchtigkeit?</summary><p>Ja. Entscheidend ist der durchgehende Luftkanal — und der ist mit ~3 cm besonders großzügig. Das 3D-Gewirke hält oben und unten auf Abstand, Luft zirkuliert ständig.</p></details>
+    <details><summary>… funktioniert das auf Parkett und Laminat?</summary><p>Auf jedem festen Boden — Parkett, Laminat, Vinyl, Estrich. Gerade Holzböden schützt die Matte vor Stau-Feuchtigkeit.</p></details>
   </div>
 </section>
 
