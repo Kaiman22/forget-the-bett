@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#ece4d8"/>
+  <line x1="70" y1="402" x2="730" y2="402" stroke="#26231f" stroke-width="3" stroke-linecap="round"/>
+  <rect x="200" y="376" width="400" height="16" rx="8" fill="#26231f"/>
+  <rect x="212" y="326" width="376" height="50" rx="16" fill="#fbf9f5" stroke="#ddd3c4" stroke-width="2"/>
+  <g fill="#b07d56">
+    <path d="M330 268c-9-15-32-11-32 6 0 13 15 22 32 34 17-12 32-21 32-34 0-17-23-21-32-6z"/>
+    <path d="M424 232c-7-12-25-9-25 5 0 10 12 17 25 26 13-9 25-16 25-26 0-14-18-17-25-5z" opacity=".7"/>
+    <path d="M492 284c-5-9-19-7-19 4 0 8 9 13 19 20 10-7 19-12 19-20 0-11-14-13-19-4z" opacity=".45"/>
+  </g>
+  <text x="560" y="200" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="44" fill="#8a5e3c">pssst.</text>
+</svg>

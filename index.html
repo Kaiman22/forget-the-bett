@@ -79,7 +79,10 @@
   .b-head{max-width:38rem;margin-bottom:50px}
   .b-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
   .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .benefit{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:38px 34px}
+  .benefit{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .benefit .bimg{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line)}
+  .benefit .bimg img{width:100%;height:100%;object-fit:cover}
+  .benefit .bbody{padding:30px 34px 36px}
   .benefit .num{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--clay);margin-bottom:16px}
   .benefit h3{font-size:1.7rem;margin-bottom:10px}
   .benefit p{color:var(--ink-soft);font-size:1rem}
@@ -95,19 +98,10 @@
   .layer-row span{background:var(--white);border:1px solid var(--line);border-radius:100px;padding:9px 18px}
   .layer-row span.hl{background:var(--ink);color:var(--sand);border-color:var(--ink)}
   .layer-row i{color:var(--clay);font-style:normal;font-weight:600}
-  .mesh .photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1;box-shadow:0 30px 60px -34px rgba(60,40,20,.5)}
+  .mesh .photos{display:grid;gap:16px}
+  .mesh .photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;box-shadow:0 30px 60px -34px rgba(60,40,20,.5)}
   .mesh .photo img{width:100%;height:100%;object-fit:cover}
   @media(max-width:840px){.mesh-grid{grid-template-columns:1fr;gap:36px}}
-
-  /* MATERIAL strip */
-  .material{padding:104px 0}
-  .material h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
-  .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
-  .material figure{border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid var(--line)}
-  .material figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-  .material figcaption{padding:18px 20px 22px;font-family:'Fraunces',serif;font-size:1.15rem}
-  .material figcaption span{display:block;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink-soft);margin-top:5px;line-height:1.5}
-  @media(max-width:720px){.mat-grid{grid-template-columns:1fr}}
 
   /* PRODUCT */
   .product{background:var(--ink);color:var(--sand);padding:104px 0}
@@ -185,26 +179,10 @@
   <div class="wrap intro-grid">
     <div>
       <h1>Matratze auf den Boden. Fertig.</h1>
-      <p>Wir liefern die Unterlage, die es möglich macht.</p>
+      <p>Du brauchst kein Bett. Nur eine Unterlage gegen Feuchtigkeit — die liefern wir.</p>
       <a class="btn btn-clay" href="#product">Die Matte — ab 89&nbsp;€</a>
     </div>
     <div class="photo"><img src="assets/image2.png" alt="Matratze auf der Monk Mat — direkt auf dem Boden" /></div>
-  </div>
-</section>
-
-<!-- RELIC -->
-<section class="relic">
-  <div class="wrap">
-    <span class="eyebrow">Wach auf</span>
-    <h2>Das Bett ist ein Relikt.</h2>
-    <p class="lead">Erfunden gegen drei Probleme, die dein Zuhause längst gelöst hat:</p>
-    <ul class="qs">
-      <li>Laufen dir Nager durchs Schlafzimmer?</li>
-      <li>Schläfst du auf kaltem, feuchtem Boden?</li>
-      <li>Pfeift dir Zugluft unter den Rücken?</li>
-    </ul>
-    <div class="punch">Nein? Dann lebst &amp; schläfst du <b>ohne Bett besser!</b></div>
-    <a class="btn btn-clay" style="margin-top:8px" href="#why">Hier ist warum →</a>
   </div>
 </section>
 
@@ -216,46 +194,22 @@
       <h2>Vorteile mit ohne Bett.</h2>
     </div>
     <div class="bgrid">
-      <div class="benefit"><div class="num">01</div><h3>Weniger ist Freiheit.</h3><p>Weniger ausgeben, besitzen, schrauben oder schleppen. Minimal leben, leicht schlafen.</p></div>
-      <div class="benefit"><div class="num">02</div><h3>Bumsen ohne rumsen.</h3><p>Knarzfrei lieben — diskret und rücksichtsvoll für Nachbarn oder Mitbewohner.</p></div>
-      <div class="benefit"><div class="num">03</div><h3>Kindersicher.</h3><p>Bodennah und ohne harte Kanten — sorglos schlafen und toben.</p></div>
-      <div class="benefit"><div class="num">04</div><h3>Based.</h3><p>Geerdet am Boden. Gesund für den Rücken wie ein japanischer Mönch.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- MESH -->
-<section class="mesh" id="mesh">
-  <div class="wrap mesh-grid">
-    <div>
-      <span class="eyebrow">Die eine Ausnahme</span>
-      <h2>Schlaf is in the Air.</h2>
-      <p>Über Nacht gibt dein Körper bis zu einem halben Liter Wasser ab. Direkt auf dem Boden staut sich das unter der Matratze — Stockflecken, Schimmel, Mief.</p>
-      <p class="sol"><strong>Die 3D-Mesh-Matte</strong> schiebt einen satten ~3&nbsp;cm hohen Luftkanal zwischen Matratze und Boden — extra viel Luft. Feuchtigkeit entweicht, alles bleibt trocken. Mehr brauchst du nicht.</p>
-      <div class="layer-row"><span>Matratze</span><i>+</i><span class="hl">3D-Mesh</span><i>+</i><span>Boden</span></div>
-    </div>
-    <div class="photo"><img src="assets/Gemini_Generated_Image_14pxpr14pxpr14px.jpeg" alt="Luft zirkuliert durch die 3D-Mesh-Matte unter der schwebenden Matratze" loading="lazy" /></div>
-  </div>
-</section>
-
-<!-- MATERIAL -->
-<section class="material">
-  <div class="wrap">
-    <span class="eyebrow">Das Material</span>
-    <h2>Das Gewirke arbeitet nachts.</h2>
-    <div class="mat-grid">
-      <figure>
-        <img src="assets/Gemini_Generated_Image_6xuvj66xuvj66xuv.png" alt="Wasserdampf steigt durch die Mesh-Matte auf" loading="lazy" />
-        <figcaption>Atmet ständig.<span>Feuchtigkeit steigt auf, statt sich zu stauen.</span></figcaption>
-      </figure>
-      <figure>
-        <img src="assets/Gemini_Generated_Image_lbqg6clbqg6clbqg.jpg" alt="Feines 3D-Gewirke trägt ein kostbares Objekt" loading="lazy" />
-        <figcaption>Trägt Kostbares.<span>Dein Rücken, zum Beispiel.</span></figcaption>
-      </figure>
-      <figure>
-        <img src="assets/FAD3D846-6DE8-445E-A6D4-9826B94DFF58.png" alt="Die Monk Mat, aufgerollt" loading="lazy" />
-        <figcaption>Rollt sich weg.<span>Unterm Arm zum Umzug. Bei 30&nbsp;°C in die Wäsche.</span></figcaption>
-      </figure>
+      <div class="benefit">
+        <div class="bimg"><img src="assets/FAD3D846-6DE8-445E-A6D4-9826B94DFF58.png" alt="Die Monk Mat, aufgerollt" loading="lazy" /></div>
+        <div class="bbody"><div class="num">01</div><h3>Weniger ist Freiheit.</h3><p>Weniger ausgeben, besitzen, schrauben oder schleppen. Rollt sich weg, wenn du sie nicht brauchst.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="bimg"><img src="assets/benefit-quiet.svg" alt="Pssst — leise Nächte am Boden" loading="lazy" /></div>
+        <div class="bbody"><div class="num">02</div><h3>Bumsen ohne rumsen.</h3><p>Knarzfrei lieben — diskret und rücksichtsvoll für Nachbarn oder Mitbewohner.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="bimg"><img src="assets/Gemini_Generated_Image_lbqg6clbqg6clbqg.jpg" alt="Das Gewirke trägt Kostbares — weich gebettet" loading="lazy" /></div>
+        <div class="bbody"><div class="num">03</div><h3>Kindersicher.</h3><p>Bodennah und ohne harte Kanten — sorglos schlafen und toben. Trägt Kostbares.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="bimg"><img src="assets/benefit-based.svg" alt="Meditierende Figur, geerdet am Boden" loading="lazy" /></div>
+        <div class="bbody"><div class="num">04</div><h3>Based.</h3><p>Geerdet am Boden. Gesund für den Rücken wie ein japanischer Mönch.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -288,6 +242,39 @@
         <div><b>30</b>Nächte testen</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MESH -->
+<section class="mesh" id="mesh">
+  <div class="wrap mesh-grid">
+    <div>
+      <span class="eyebrow">So funktioniert's</span>
+      <h2>Schlaf is in the Air.</h2>
+      <p>Über Nacht gibt dein Körper bis zu einem halben Liter Wasser ab. Direkt auf dem Boden staut sich das unter der Matratze — Stockflecken, Schimmel, Mief.</p>
+      <p class="sol"><strong>Die 3D-Mesh-Matte</strong> schiebt einen satten ~3&nbsp;cm hohen Luftkanal zwischen Matratze und Boden — extra viel Luft. Feuchtigkeit entweicht, alles bleibt trocken. Mehr brauchst du nicht.</p>
+      <div class="layer-row"><span>Matratze</span><i>+</i><span class="hl">3D-Mesh</span><i>+</i><span>Boden</span></div>
+    </div>
+    <div class="photos">
+      <div class="photo"><img src="assets/Gemini_Generated_Image_14pxpr14pxpr14px.jpeg" alt="Luft zirkuliert durch die 3D-Mesh-Matte unter der schwebenden Matratze" loading="lazy" /></div>
+      <div class="photo"><img src="assets/Gemini_Generated_Image_6xuvj66xuvj66xuv.png" alt="Wasserdampf steigt durch die Mesh-Matte auf — atmet ständig" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- RELIC -->
+<section class="relic">
+  <div class="wrap">
+    <span class="eyebrow">Geschichtsstunde</span>
+    <h2>Warum gab es überhaupt Betten?</h2>
+    <p class="lead">Weil erhöht schlafen mal drei echte Probleme löste:</p>
+    <ul class="qs">
+      <li>Laufen dir Nager durchs Schlafzimmer?</li>
+      <li>Schläfst du auf kaltem, feuchtem Boden?</li>
+      <li>Pfeift dir Zugluft unter den Rücken?</li>
+    </ul>
+    <div class="punch">Nein? Eben. <b>Das Bett ist ein Relikt.</b></div>
+    <a class="btn btn-clay" style="margin-top:8px" href="#product">Mat statt Bett — ab 89&nbsp;€</a>
   </div>
 </section>
 
